@@ -129,7 +129,6 @@
 <script>
   const display = document.getElementById('display');
   
-  // Tracks the raw equation for math logic
   let equation = "";
 
   function append(char) {
@@ -151,13 +150,13 @@
     try {
       if (!equation) return;
       
-      // JavaScript uses ** for exponents, so we swap the ^ symbol before evaluating
+     
       let mathToSolve = equation.replace(/\^/g, '**');
       
-      // The Function constructor safely evaluates the math string
+
       let result = new Function('return ' + mathToSolve)();
       
-      // Handle division by zero or malformed math
+    
       if (!isFinite(result) || isNaN(result)) {
         display.value = "Error";
         equation = "";
